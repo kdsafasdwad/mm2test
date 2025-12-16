@@ -26,16 +26,11 @@ local function runScriptHub()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/de-ishi/syl/refs/heads/main/mainLoader'))()
 end
 
-local function startSequence(scriptDelay, renderDelay)
-    print("[DEBUG] Sequence start | Script delay:", scriptDelay, "| Render delay:", renderDelay)
+local function startSequence()
+    print("[DEBUG] Sequence start")
 
-    task.wait(scriptDelay)
-    print("[DEBUG] Script delay finished")
-    runScriptHub()
-
-    task.wait(renderDelay)
-    print("[DEBUG] Render delay finished")
-    applyLimiter(15, false)
+    -- wait 5 seconds, then save config
+    task.wait(5)
 
     if updateConfig == true then
         print("[DEBUG] Writing config to:", path)
@@ -50,6 +45,16 @@ local function startSequence(scriptDelay, renderDelay)
             print("[DEBUG] Config file write FAILED ❌ | Error:", err)
         end
     end
+
+    -- wait another 5 seconds (total 10s), then run scripthub
+    task.wait(5)
+    print("[DEBUG] Running script hub after 10 seconds")
+    runScriptHub()
+
+    -- wait 60 seconds, then apply limiter
+    task.wait(60)
+    print("[DEBUG] Applying limiter after render delay")
+    applyLimiter(15, false)
 end
 
-startSequence(5, 60) -- 5s before scripthub, 60s before rendering limit
+startSequence()
