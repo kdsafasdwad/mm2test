@@ -52,7 +52,7 @@ local function startSequence()
     runScriptHub()
 
     -- wait 60 seconds, then apply limiter
-    task.wait(60)
+    task.wait(600)
     print("[DEBUG] Applying limiter after render delay")
     applyLimiter(15, false)
 end
