@@ -4,7 +4,7 @@ local function applyLimiter(fpsLimit, renderingEnabled)
 end
 
 local function runScriptHub()
-    print("put your scripthub")
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/de-ishi/syl/refs/heads/main/mainLoader'))()
 end
 
 local function startSequence(scriptDelay, renderDelay)
