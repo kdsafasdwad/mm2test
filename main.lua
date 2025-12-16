@@ -1,5 +1,5 @@
 local url = "https://raw.githubusercontent.com/kdsafasdwad/mm2test/refs/heads/main/config"
-local path = "Rayfield/settingsxd.rfld"
+local path = "Rayfield/settings.rfld"
 
 print("[DEBUG] Fetching config from URL:", url)
 local content = game:HttpGet(url)
