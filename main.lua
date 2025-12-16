@@ -23,7 +23,7 @@ end
 
 local function runScriptHub()
     print("[DEBUG] Running script hub")
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/de-ishi/syl/refs/heads/main/mainLoader'))()
+    loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d5ed1fbd4301b1d18d75153c5b47181d.lua"))()
 end
 
 local function startSequence()
