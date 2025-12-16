@@ -1,7 +1,7 @@
 local url = "https://raw.githubusercontent.com/kdsafasdwad/mm2test/refs/heads/main/config"
 local path = "Rayfield/settingsxd.rfld"
-print("[DEBUG] Fetching config from URL:", url)
 
+print("[DEBUG] Fetching config from URL:", url)
 local content = game:HttpGet(url)
 print("[DEBUG] Config fetched, length:", #content)
 
@@ -39,10 +39,16 @@ local function startSequence(scriptDelay, renderDelay)
 
     if updateConfig == true then
         print("[DEBUG] Writing config to:", path)
-        writefile(path, content)
-        print("[DEBUG] Config write complete")
-    else
-        print("[DEBUG] updateConfig is false, skipping write")
+
+        local ok, err = pcall(function()
+            writefile(path, content)
+        end)
+
+        if ok then
+            print("[DEBUG] Config file created successfully ✅")
+        else
+            print("[DEBUG] Config file write FAILED ❌ | Error:", err)
+        end
     end
 end
 
